@@ -1,5 +1,7 @@
 package _00_Intro_to_Exceptions;
 
+import javax.swing.JOptionPane;
+
 public class ExceptionsDemo {
 
     /*
@@ -49,15 +51,23 @@ public class ExceptionsDemo {
          * 2. Call the testFiveOrGreater method with a value less than 5 inside
          * the try block.
          */
-
+    	//z
         /*
          * 3. Call e.printStackTrace() in the catch block. This prints out the
          * last methods called during your program's execution to the console in
          * red text.
          */
-
+    	//z
         // 4. Run the program. Did the stack trace print out?
-
+    	//z
+    	
+    	try {
+			testPositive(-1);
+		} catch (NegativeNumberException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
 
     /*
@@ -68,7 +78,13 @@ public class ExceptionsDemo {
      * JOptionPane Message Dialog telling the user they have triggered a
      * critical error in their computer.
      */
-
+    public class NegativeNumberException extends Exception{
+    	
+    	public void scaryPopup(){
+    		JOptionPane.showMessageDialog(null, "big error");
+    	}
+    	
+    }
     /*
      * 7. Create a static method in this class called testPositive. It should
      * take a single number as a parameter and throw a NegativeNumberException
@@ -92,7 +108,11 @@ public class ExceptionsDemo {
      * 
      * 10. Try running the program. Did it show a pop-up?
      */
-
+    static void testPositive(int num) throws NegativeNumberException{
+    	if(num < 0) {
+    		
+    	}
+    }
     /*
      * 11. Add a finally block after your catch block(Hint: finally{}). A
      * finally block always occurs after a try/catch block even if no exception
