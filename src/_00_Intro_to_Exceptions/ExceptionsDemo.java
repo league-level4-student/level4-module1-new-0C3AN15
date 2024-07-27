@@ -110,7 +110,7 @@ public class ExceptionsDemo {
      */
     static void testPositive(int num) throws NegativeNumberException{
     	if(num < 0) {
-    		
+    		throw new NegativeNumberException();
     	}
     }
     /*
@@ -125,3 +125,5 @@ public class ExceptionsDemo {
      * exceptions.
      */
 }
+
+////////
