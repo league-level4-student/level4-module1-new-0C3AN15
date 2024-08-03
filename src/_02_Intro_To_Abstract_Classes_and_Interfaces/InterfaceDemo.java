@@ -45,3 +45,4 @@ interface DemoInterface {
  * 1. Implement both InterfaceDemo and DemoInterface in the class you created
  * for the AbstractClassDemo
  */
+

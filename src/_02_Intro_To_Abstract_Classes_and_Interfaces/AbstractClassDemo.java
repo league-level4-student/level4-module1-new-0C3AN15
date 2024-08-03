@@ -50,3 +50,15 @@ public abstract class AbstractClassDemo {
  * 1. Create a class that extends the AbstractClassDemo class and implement its
  * methods.
  */
+
+class what extends AbstractClassDemo {
+    public void abstractDemo() {
+	}
+
+	@Override
+	public int abstractNumDemo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

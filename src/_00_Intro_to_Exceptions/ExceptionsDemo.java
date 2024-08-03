@@ -63,14 +63,19 @@ public class ExceptionsDemo {
     	
     	try {
 			testPositive(-1);
+			testPositive(1);
 		} catch (NegativeNumberException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			e.scaryPopup();
 		}
+    	finally {
+    		JOptionPane.showMessageDialog(null, "computer good");
+    	}
     	
     }
 
-    /*
+  /*
      * 5. Create your own exception by making a new class called
      * NegativeNumberException that extends Exception.
      * 
@@ -78,12 +83,23 @@ public class ExceptionsDemo {
      * JOptionPane Message Dialog telling the user they have triggered a
      * critical error in their computer.
      */
-    public class NegativeNumberException extends Exception{
+    public static class NegativeNumberException extends Exception{
     	
+    	public NegativeNumberException() {
+    		System.out.println("negative number exception");
+    	}
+
     	public void scaryPopup(){
     		JOptionPane.showMessageDialog(null, "big error");
     	}
+
     	
+    }
+    
+    public static void testPositive(int num) throws NegativeNumberException {
+    	if(num < 0) {
+    		throw new NegativeNumberException();
+    	}
     }
     /*
      * 7. Create a static method in this class called testPositive. It should
@@ -108,11 +124,7 @@ public class ExceptionsDemo {
      * 
      * 10. Try running the program. Did it show a pop-up?
      */
-    static void testPositive(int num) throws NegativeNumberException{
-    	if(num < 0) {
-    		throw new NegativeNumberException();
-    	}
-    }
+   
     /*
      * 11. Add a finally block after your catch block(Hint: finally{}). A
      * finally block always occurs after a try/catch block even if no exception
