@@ -10,6 +10,7 @@ public class TextFunkifierTest {
      * 1. In BackwardsString implement the funkifyText method inherited from
      * TextFunkifier so that it returns the unfunkifiedText String backwards.
      */
+	////
 
     @Test
     public void testBackwardsString() {
@@ -44,6 +45,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	SameString ss = new SameString("phone");
+    	assertEquals("phone", ss.funkifyText());
     }
 }

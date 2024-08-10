@@ -60,5 +60,10 @@ class what extends AbstractClassDemo {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	public interface InterfaceDemo{
+		
+	}
+	interface DemoInterface{
+		
+	}
 }
