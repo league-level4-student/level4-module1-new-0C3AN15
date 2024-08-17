@@ -87,6 +87,7 @@ public class PolymorphismDemo {
          * the eat method.
          */
         //animal.eat();
+        ((Dog)animal).eat();
         //6?
         /*
          * Polymorphism is not just limited to variables, it can also be used in

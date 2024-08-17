@@ -5,6 +5,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -52,7 +55,7 @@ import javax.swing.Timer;
  *  clicked. Hint: MouseListener interface.
  */
 
-public class PolymorphWindow extends JPanel implements ActionListener {
+public class PolymorphWindow extends JPanel implements ActionListener, MouseMotionListener {
 
     public static final int WIDTH = 900;
     public static final int HEIGHT = 600;
@@ -60,10 +63,15 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     private JFrame window;
     private Timer timer;
 
-    Polymorph bluePoly;
+//    Polymorph bluePoly;
+//    Polymorph redPoly;
+//    Polymorph MovingMorph;
+    
+    ArrayList<Polymorph> list = new ArrayList<Polymorph>();
 
     public static void main(String[] args) {
         new PolymorphWindow().buildWindow();
+        
     }
 
     public void buildWindow() {
@@ -74,10 +82,19 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         window.pack();
         window.setVisible(true);
 
-        bluePoly = new BluePolymorph(50, 50);
+//        bluePoly = new BluePolymorph(50, 50);
+//        redPoly = new RedPolymorph(50, 50);
+//        MovingMorph = new MovingMorph(50,50);
 
         timer = new Timer(1000 / 30, this);
         timer.start();
+        
+        list.add(new BluePolymorph(50,50));
+        list.add(new RedPolymorph(50,50));
+        list.add(new MovingMorph(50,50));
+        list.add(new MouseMorph(50,50));
+        
+        window.addMouseMotionListener((MouseMotionListener) list.get(3));
     }
 
     public void paintComponent(Graphics g) {
@@ -86,13 +103,37 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         g.fillRect(0, 0, 500, 500);
 
         // draw polymorph
-        bluePoly.draw(g);
+//        bluePoly.draw(g);
+//        redPoly.draw(g);
+//        MovingMorph.draw(g);
+        
+        for(int i=0;i<list.size();i++) {
+        	list.get(i).draw(g);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         repaint();
-        bluePoly.update();
+//        bluePoly.update();
+//        redPoly.update();
+//        MovingMorph.update();
+        for(int i=0;i<list.size();i++) {
+        	list.get(i).update();
+        }
 
     }
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+//		list.get(3).setX(e.getX());
+//		list.get(3).setY(e.getX());
+	}
 }
