@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
@@ -55,7 +56,7 @@ import javax.swing.Timer;
  *  clicked. Hint: MouseListener interface.
  */
 
-public class PolymorphWindow extends JPanel implements ActionListener, MouseMotionListener {
+public class PolymorphWindow extends JPanel implements ActionListener {
 
     public static final int WIDTH = 900;
     public static final int HEIGHT = 600;
@@ -93,8 +94,10 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
         list.add(new RedPolymorph(50,50));
         list.add(new MovingMorph(50,50));
         list.add(new MouseMorph(50,50));
+        list.add(new JopMorph(0,0));
         
         window.addMouseMotionListener((MouseMotionListener) list.get(3));
+        window.addMouseListener((MouseListener) list.get(4));
     }
 
     public void paintComponent(Graphics g) {
@@ -123,17 +126,6 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
         }
 
     }
-
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-//		list.get(3).setX(e.getX());
-//		list.get(3).setY(e.getX());
-	}
+	
 }
+//ds
