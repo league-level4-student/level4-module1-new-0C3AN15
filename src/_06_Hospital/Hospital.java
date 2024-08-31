@@ -2,6 +2,8 @@ package _06_Hospital;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Hospital {
 
 	ArrayList<Doctor> Doctors = new ArrayList<Doctor>();
@@ -23,8 +25,20 @@ public class Hospital {
 		return unassignedPatients;
 	}
 	
-	void assignPatientsToDoctors() {
-		//no nah #6 & #5
+	public void assignPatientsToDoctors() throws DoctorFullException{
+		int count = 0;
+		for(int i=0;i<unassignedPatients.size();i++) {
+			if(Doctors.get(count).getPatients().size() < 3) {
+				Doctors.get(count).assignPatient(unassignedPatients.get(i));
+			}
+			else {
+				count++;
+				throw new DoctorFullException();
+				//JOptionPane.showMessageDialog(null, "nah");
+			}
+		}
 	}
 	
+	
+		
 }

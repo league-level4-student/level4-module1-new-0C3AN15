@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+//import _06_Hospital.Hospital.DoctorFullException;
+
 import java.util.List;
 
 import junit.framework.TestCase;
